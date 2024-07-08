@@ -45,12 +45,16 @@ const handleCTAClick = () => {
   }
 };
 
-const Header = () => (
+const Header = () => {
+  ReactGA.initialize('G-YQCNW7H0HP');  // Reemplaza con tu ID de seguimiento
+  ReactGA.pageview(window.location.pathname + window.location.search); // Registra la vista de página
+  
+  return (
   <Hero>
     <Title>Obtén el Control de Tus Finanzas Hoy</Title>
     <Subtitle>Asesoría y Planificación Financiera Personalizada</Subtitle>
     <CTAButton  onClick={handleCTAClick}>Agenda tu Consulta Gratuita</CTAButton>
   </Hero>
-);
+)};
 
 export default Header;

@@ -7,11 +7,6 @@ import ContactForm from './components/ContactForm';
 import AboutMe from './components/AboutMe';
 import Footer from './components/Footer';
 import styled, { createGlobalStyle } from 'styled-components';
-import ReactGA from 'react-ga';
-
-ReactGA.initialize('G-YQCNW7H0HP');  // Reemplaza con tu ID de seguimiento
-
-ReactGA.pageview(window.location.pathname + window.location.search); // Registra la vista de página
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -27,8 +22,8 @@ const AppContainer = styled.div`
 
 const App = () => (
   <>
-     <GlobalStyle />
-     <AppContainer>
+    <GlobalStyle />
+    <AppContainer>
       <Header />
       <Services />
       <Testimonials />
