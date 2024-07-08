@@ -12,19 +12,19 @@ const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-const ServiceList = styled.div`
-  display: flex;
+const ServiceList = styled.ul`
+  list-style: none;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 `;
 
-const ServiceItem = styled.div`
+const ServiceItem = styled.li`
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  margin-bottom: 10px;
 `;
 
 const ServiceTitle = styled.h3`
