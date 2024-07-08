@@ -1,6 +1,6 @@
-// src/components/Header.js
 import React from 'react';
 import styled from 'styled-components';
+import ReactGA from 'react-ga';
 
 const Hero = styled.div`
   display: flex;
@@ -32,11 +32,24 @@ const CTAButton = styled.button`
   cursor: pointer;
 `;
 
+const handleCTAClick = () => {
+  ReactGA.event({
+    category: 'Button',
+    action: 'Click',
+    label: 'Submit Button'
+  });
+
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Header = () => (
   <Hero>
     <Title>Obtén el Control de Tus Finanzas Hoy</Title>
     <Subtitle>Asesoría y Planificación Financiera Personalizada</Subtitle>
-    <CTAButton>Agenda tu Consulta Gratuita</CTAButton>
+    <CTAButton  onClick={handleCTAClick}>Agenda tu Consulta Gratuita</CTAButton>
   </Hero>
 );
 
