@@ -13,6 +13,7 @@ export const Title = styled.h2`
 
 export const ProcessList = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 `;
@@ -22,6 +23,7 @@ export const ProcessItem = styled.div`
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
 `;
 
 export const Step = styled.h3`
