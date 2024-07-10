@@ -15,4 +15,4 @@ export const servicesData = [
       title: "Creación de Plantillas de Excel",
       description: "Te proporcionamos plantillas personalizadas para el control de tus finanzas.",
     },
-  ];
+];
