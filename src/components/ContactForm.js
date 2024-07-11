@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactGA from 'react-ga';
 import emailjs from 'emailjs-com';
+import SnackbarComponent from './SnackbarComponent';
 import { ContactSection, Title, Form, Input, Textarea, Button } from '../styles/ContactFormStyles';
 
 const ContactForm = () => {
@@ -10,6 +11,11 @@ const ContactForm = () => {
     phone: '',
     message: ''
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('success');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +27,7 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     ReactGA.event({
         category: 'Form',
@@ -32,10 +39,15 @@ const ContactForm = () => {
     emailjs.sendForm('service_4kgphze', 'template_9hatw3i', e.target, '3DHa3iwu4MqnzcVp-')
       .then((result) => {
           console.log(result.text);
-          alert('Mensaje enviado correctamente');
+          setSnackbarMessage('Mensaje enviado correctamente');
+          setSnackbarSeverity('success');;
       }, (error) => {
           console.log(error.text);
-          alert('Hubo un error al enviar el mensaje');
+          setSnackbarMessage('Hubo un error al enviar el mensaje');
+          setSnackbarSeverity('error');
+    }).finally(() => {
+      setSnackbarOpen(true);
+      setIsSubmitting(false);
     });
 
     setFormData({
@@ -44,6 +56,10 @@ const ContactForm = () => {
       phone: '',
       message: ''
     });
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
   };
 
   return (
@@ -57,6 +73,7 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
+          disabled={isSubmitting}
         />
         <Input
           type="email"
@@ -65,6 +82,7 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
+          disabled={isSubmitting}
         />
         <Input
           type="tel"
@@ -72,6 +90,7 @@ const ContactForm = () => {
           placeholder="Teléfono"
           value={formData.phone}
           onChange={handleChange}
+          disabled={isSubmitting}
         />
         <Textarea
           name="message"
@@ -80,9 +99,16 @@ const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           required
+          disabled={isSubmitting}
         />
-        <Button type="submit">Enviar</Button>
+        <Button type="submit" disabled={isSubmitting}>Enviar</Button>
       </Form>
+      <SnackbarComponent
+        open={snackbarOpen}
+        handleClose={handleSnackbarClose}
+        message={snackbarMessage}
+        severity={snackbarSeverity}
+      />
     </ContactSection>
   );
 };
