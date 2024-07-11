@@ -11,20 +11,19 @@ export const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-export const ServiceList = styled.ul`
-  display: contents;
-  list-style: none;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+export const ServiceList = styled.div`
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 `;
 
-export const ServiceItem = styled.li`
+export const ServiceItem = styled.div`
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
+  width: 300px;
 `;
 
 export const ServiceTitle = styled.h3`
