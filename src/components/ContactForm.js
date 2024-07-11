@@ -29,7 +29,7 @@ const ContactForm = () => {
     });
 
    
-    emailjs.sendForm('service_4kgphze', 'template_z2eq91w', e.target, '3DHa3iwu4MqnzcVp-')
+    emailjs.sendForm('service_4kgphze', 'template_9hatw3i', e.target, '3DHa3iwu4MqnzcVp-')
       .then((result) => {
           console.log(result.text);
           alert('Mensaje enviado correctamente');
@@ -38,7 +38,6 @@ const ContactForm = () => {
           alert('Hubo un error al enviar el mensaje');
     });
 
-    // Restablecer el formulario después de enviarlo
     setFormData({
       name: '',
       email: '',
