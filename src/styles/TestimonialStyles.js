@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 export const TestimonialsSection = styled.section`
   padding: 60px 20px;
@@ -11,18 +11,10 @@ export const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-export const TestimonialList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-`;
-
 export const TestimonialItem = styled.div`
   background: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
 `;
 

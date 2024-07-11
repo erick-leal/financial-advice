@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import { Hero, Title, Subtitle, CTAButton } from '../styles/HeaderStyles';
+import { HeaderData } from '../utils/HeaderData';
 
 const handleCTAClick = () => {
   ReactGA.event({
@@ -21,9 +22,9 @@ const Header = () => {
   
   return (
   <Hero>
-    <Title>Obtén el Control de Tus Finanzas Hoy</Title>
-    <Subtitle>Asesoría y Planificación Financiera Personalizada</Subtitle>
-    <CTAButton  onClick={handleCTAClick}>Agenda tu Consulta Gratuita</CTAButton>
+    <Title>{HeaderData.title}</Title>
+    <Subtitle>{HeaderData.subtitle}</Subtitle>
+    <CTAButton  onClick={handleCTAClick}>{HeaderData.button}</CTAButton>
   </Hero>
 )};
 

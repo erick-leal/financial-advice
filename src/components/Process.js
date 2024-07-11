@@ -1,5 +1,5 @@
 import React from 'react';
-import { processSteps } from '../utils/ProcessSteps';
+import { processSteps } from '../utils/ProcessData';
 import { ProcessSection, Title, ProcessList, ProcessItem, StepTitle, StepDescription, Step } from '../styles/ProcessStyles';
 
 const Process = () => (

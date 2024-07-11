@@ -9,6 +9,9 @@ import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsApp';
 import styled, { createGlobalStyle } from 'styled-components';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
