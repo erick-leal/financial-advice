@@ -6,6 +6,7 @@ import Process from './components/Process';
 import ContactForm from './components/ContactForm';
 import AboutMe from './components/AboutMe';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsApp';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -37,6 +38,7 @@ const App = () => (
       <ContactForm />
       <AboutMe />
       <Footer />
+      <WhatsAppButton />
     </AppContainer>
   </>
 );
