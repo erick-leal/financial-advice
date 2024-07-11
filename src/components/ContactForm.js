@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactGA from 'react-ga';
+import emailjs from 'emailjs-com';
 import { ContactSection, Title, Form, Input, Textarea, Button } from '../styles/ContactFormStyles';
 
 const ContactForm = () => {
@@ -19,15 +20,31 @@ const ContactForm = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+
     ReactGA.event({
         category: 'Form',
         action: 'Submit',
         label: 'Contact Form'
-      });
+    });
 
-    e.preventDefault();
-    // Aquí puedes manejar el envío del formulario
-    console.log(formData);
+   
+    emailjs.sendForm('service_4kgphze', 'template_z2eq91w', e.target, '3DHa3iwu4MqnzcVp-')
+      .then((result) => {
+          console.log(result.text);
+          alert('Mensaje enviado correctamente');
+      }, (error) => {
+          console.log(error.text);
+          alert('Hubo un error al enviar el mensaje');
+    });
+
+    // Restablecer el formulario después de enviarlo
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
   };
 
   return (
